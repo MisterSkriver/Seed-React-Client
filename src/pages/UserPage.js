@@ -14,13 +14,20 @@ const UserPage = observer(
     }
 
     render() {
-      return (
+
+        var lis = userData.clubs.map(function(club){
+            return(
+                <li>
+                    {club.name}, {club.url}
+                </li>
+            )
+        })
+
+
+        return (
         <div>
-          <h2>Users</h2>
-          <p>This message is fetched from the server if you are properly logged in</p>
-          <div className="msgFromServer">
-            {userData.messageFromServer}
-          </div>
+          <h2>Clubs</h2>
+            <ul>{lis}</ul>
           <h4 style={{ color: "red" }}>{userData.errorMessage}</h4>
         </div>
       )
